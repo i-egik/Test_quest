@@ -1,1 +1,192 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
 
+namespace CCC
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        //СПИСОК
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        // ТЕСТОВАЯ КНОПКА
+        private void tstbot_Click(object sender, EventArgs e)
+        {
+            //Данные для Ditails
+            /*ListViewItem lvitem1 = new ListViewItem("31.03.1991");
+            lvitem1.SubItems.Add("Солнце");
+            listView1.Items.Add(lvitem1);
+
+            ListViewItem lvitem2 = new ListViewItem("18.04.1993");
+            lvitem2.SubItems.Add("Меркурий");
+            listView1.Items.Add(lvitem2);
+
+            ListViewItem lvitem3 = new ListViewItem("23.07.1990");
+            lvitem3.SubItems.Add("Венера");
+            listView1.Items.Add(lvitem3);
+
+            ListViewItem lvitem4 = new ListViewItem("08.01.1987");
+            lvitem4.SubItems.Add("Земля");
+            listView1.Items.Add(lvitem4);
+
+            ListViewItem lvitem5 = new ListViewItem("01.05.1993");
+            lvitem5.SubItems.Add("Марс");
+            listView1.Items.Add(lvitem5);
+
+            ListViewItem lvitem6 = new ListViewItem("18.03.2003");
+            lvitem6.SubItems.Add("юпитер");
+            listView1.Items.Add(lvitem6);
+
+            ListViewItem lvitem7 = new ListViewItem("18.04.1994");
+            lvitem7.SubItems.Add("Сатурн");
+            listView1.Items.Add(lvitem7);
+
+            ListViewItem lvitem8 = new ListViewItem("18.03.1991");
+            lvitem8.SubItems.Add("Уран");
+            listView1.Items.Add(lvitem8);
+
+            ListViewItem lvitem9 = new ListViewItem("06.11.2000");
+            lvitem9.SubItems.Add("Нептун");
+            listView1.Items.Add(lvitem9);
+
+            ListViewItem lvitem10 = new ListViewItem("09.08.1983");
+            lvitem10.SubItems.Add("Плутон");
+            listView1.Items.Add(lvitem10);
+            */
+            //Для List
+            listView1.Items.Add("31.03.1991 Солнце");
+            listView1.Items.Add("09.08.1983 Плутон");
+            listView1.Items.Add("06.11.2000 Нептун");
+            listView1.Items.Add("18.03.1991 Уран");
+            listView1.Items.Add("10.04.1994 Сатурн");
+            listView1.Items.Add("18.03.2003 Юпитер");
+            listView1.Items.Add("01.05.1993 Марс");
+            listView1.Items.Add("08.01.1987 Земля");
+            listView1.Items.Add("23.07.1990 Венера");
+            listView1.Items.Add("27.04.1993 Меркурий");
+
+            listView2.Items.Add("31.03.1991 Солнце");
+            listView2.Items.Add("09.08.1983 Плутон");
+            listView2.Items.Add("06.11.2000 Нептун");
+            listView2.Items.Add("18.03.1991 Уран");
+            listView2.Items.Add("10.04.1994 Сатурн");
+            listView2.Items.Add("18.03.2003 Юпитер");
+            listView2.Items.Add("01.05.1993 Марс");
+            listView2.Items.Add("08.01.1987 Земля");
+            listView2.Items.Add("23.07.1990 Венера");
+            listView2.Items.Add("27.04.1993 Меркурий");
+
+
+        }
+
+        //УДАЛИТЬ
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listView1.SelectedItems)
+            {
+                listView1.Items.Remove(item);
+            }
+        }
+
+        //ДОБАВИТЬ
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            listView1.Items.Add(textBox2.Text);
+            textBox2.Clear();
+  
+        }
+
+        //ИЗМЕНИТЬ
+        private void button3_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listView1.SelectedItems)
+            {
+                listView1.Items.Remove(item);
+                listView1.Items.Add(textBox2.Text);
+                textBox2.Clear();
+            }
+        }
+
+        //СОХРАНИТЬ
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            /*  StringBuilder sb;
+              if (listView1.Items.Count > 0)
+              {
+                  foreach (ListViewItem lvi in listView1.Items)
+                      sb = new StringBuilder();
+                  foreach (ListViewItem.ListViewSubItem listViewSubItem in lvi.SubItems)
+                  {
+                      sb.Append(string.Format("{0}\t", listViewSubItem.Text));
+                  }
+                  sw.WriteLine(sb.ToString());
+              }
+              sw.WrireLine();
+          }*/
+
+            SaveFileDialog savefileDialog = new SaveFileDialog();
+            
+            if (savefileDialog.ShowDialog() == DialogResult.OK)
+            {
+                Name = savefileDialog.FileName;
+
+                File.WriteAllText(Name, textBox2.Text);
+            }
+            ;
+          }
+        
+       
+   
+        // ЗАГРУЗИТЬ
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //ДАТА
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //ИМЯ ОТЧЕСТВО
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        //БЛИЖАЙШИЕ ТРИ
+        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+       
+        }
+
+        private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            listView1.Sort();
+        }
+    }
+}
